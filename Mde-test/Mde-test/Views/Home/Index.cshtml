@@ -6,11 +6,13 @@
 
 @section scripts {
 <script type="text/javascript">
-    new SimpleMDE({
+    var simplemde = new SimpleMDE({
         //element: document.getElementById("bob"), //element only needed if multiple textareas are on the page
-	    spellChecker: false, //IE 9 bombs if this is true
-		toolbar: ["bold", "italic", "strikethrough", "|", "heading-1", "heading-2", "heading-3", "|", "unordered-list", "ordered-list", "link", "|", "undo", "redo", "|", "preview"]
-
-	});
+        spellChecker: false, //IE 9 bombs if this is true
+        toolbar: ["bold", "italic", "strikethrough", "|", "heading-1", "heading-2", "heading-3", "|", "unordered-list", "ordered-list", "link", "|", "undo", "redo", "|", "preview"],
+    });
+    simplemde.codemirror.on("change", function () {
+        simplemde.codemirror.save();
+    });
 </script>
 }
